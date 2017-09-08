@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Dimensions for padding -->
+    <dimen name="padding_small">4dp</dimen>
+    <dimen name="padding_large">12dp</dimen>
+    <dimen name="padding_x_large">16dp</dimen>
+
+    <!--Dimensions for margins-->
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin_medium">8dp</dimen>
+    <dimen name="margin_large">12dp</dimen>
+    <dimen name="margin_x_large">16dp</dimen>
+    <dimen name="margin_x_x_large">24dp</dimen>
+
+    <!--Text sizes-->
+    <dimen name="text_small_medium">16sp</dimen>
+    <dimen name="text_medium">20sp</dimen>
+    <dimen name="text_medium_large">24sp</dimen>
+    <dimen name="text_large">28sp</dimen>
+    <dimen name="text_x_large">32sp</dimen>
+
+    <!--Size of the progress bar-->
+
+    <!--Size of the image of the recipe cards-->
+
+    <!--Margin for the card corners-->
+    <dimen name="card_view_corners">10dp</dimen>
+
+    <!--Dimensions for the list fragments on tabel screens-->
+
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
+</resources>

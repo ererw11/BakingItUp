@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import com.android.bakeitup.objects.Recipe;
 
@@ -30,9 +31,11 @@ public class RecipeActionServices extends IntentService {
     protected void onHandleIntent(Intent intent) {
         if (intent != null) {
             final String action = intent.getAction();
-            if (ACTION_UPDATE_RECIPE_WIDGET.equals(action)) {
+            if (ACTION_UPDATE_RECIPE_WIDGET.equals(action) &&
+                    intent.getSerializableExtra(EXTRA_RECIPE) != null) {
                 Recipe recipe = (Recipe) intent.getSerializableExtra(EXTRA_RECIPE);
                 handleActionUpdateRecipeWidget(recipe);
+                Log.d(RecipeActionServices.class.getSimpleName(), "ACTION_UPDATE_RECIPE_WIDGET");
             }
         }
     }

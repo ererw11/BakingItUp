@@ -28,7 +28,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withParent;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 
-@LargeTest
+
 @RunWith(AndroidJUnit4.class)
 public class StepListIngredientsActivityTest {
 
@@ -36,7 +36,7 @@ public class StepListIngredientsActivityTest {
     public ActivityTestRule<RecipeActivity> mActivityTestRule = new ActivityTestRule<>(RecipeActivity.class);
 
     @Test
-    public void stepListIngredientsActivityTest() {
+    public void stepListIngredientsActivityTest2() {
         ViewInteraction recyclerView = onView(
                 allOf(withId(R.id.recipe_recycler_view), isDisplayed()));
         recyclerView.perform(actionOnItemAtPosition(1, click()));
@@ -55,10 +55,10 @@ public class StepListIngredientsActivityTest {
         }
 
         ViewInteraction textView = onView(
-                allOf(withId(R.id.recipe_description_text_view), withText("Recipe Introduction"),
+                allOf(withId(R.id.recipe_short_description_text_view), withText("Recipe Introduction"),
                         childAtPosition(
                                 withParent(withId(R.id.step_detail_view_pager)),
-                                2),
+                                0),
                         isDisplayed()));
         textView.check(matches(withText("Recipe Introduction")));
 

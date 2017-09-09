@@ -72,7 +72,7 @@ public class StepDetailsFragment extends Fragment {
         Recipe recipe = (Recipe) getArguments().getSerializable(ARG_RECIPE);
         List<Step> stepList = recipe.getRecipeSteps();
         mStepID = getArguments().getInt(ARG_STEP_ID);
-        mStep = (Step) stepList.get(mStepID);
+        mStep = stepList.get(mStepID);
 
         if (savedInstanceState != null) {
             mExoPlayerPosition = savedInstanceState.getLong("current_position");
@@ -137,6 +137,7 @@ public class StepDetailsFragment extends Fragment {
 
     public void removeExoPlayer() {
         if (mExoPlayer != null) {
+            mExoPlayerPosition = mExoPlayer.getCurrentPosition();
             mExoPlayer.stop();
             mExoPlayer.release();
             mExoPlayer = null;
@@ -175,7 +176,6 @@ public class StepDetailsFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        mExoPlayerPosition = mExoPlayer.getCurrentPosition();
         outState.putLong("current_position", mExoPlayerPosition);
         outState.putInt("current_step", mStepID);
     }

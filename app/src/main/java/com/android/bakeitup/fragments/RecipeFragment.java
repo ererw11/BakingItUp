@@ -21,6 +21,7 @@ import com.android.bakeitup.RecipeFetcher;
 import com.android.bakeitup.activities.StepListIngredientActivity;
 import com.android.bakeitup.adapters.RecipeAdapter;
 import com.android.bakeitup.objects.Recipe;
+import com.android.bakeitup.widget.RecipeActionServices;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +51,7 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.RecipeAdap
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_recipe, container, false);
 
-        mRecipeRecyclerView = (RecyclerView) v.findViewById(R.id.recipe_recycler_view);
+        mRecipeRecyclerView = v.findViewById(R.id.recipe_recycler_view);
 
         RecyclerView.LayoutManager layoutManager;
         if (getResources().getConfiguration().smallestScreenWidthDp >= 600 || getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -86,9 +87,15 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.RecipeAdap
     @Override
     public void onClick(Recipe recipe) {
         Context context = getContext();
+        createRecipeIntent(context, recipe);
+    }
+
+    public void createRecipeIntent(Context context, Recipe recipe) {
         Intent recipeIntent = StepListIngredientActivity.newIntent(context, recipe);
+        RecipeActionServices.startActionUpdateWidget(context, recipe);
         startActivity(recipeIntent);
     }
+
 
     private class FetchRecipeTask extends AsyncTask<Void, Void, List<Recipe>> {
 

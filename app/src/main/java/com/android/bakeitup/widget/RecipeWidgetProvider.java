@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.android.bakeitup.R;
@@ -21,6 +22,9 @@ public class RecipeWidgetProvider extends AppWidgetProvider {
     // setImageViewResource to update the widget’s image
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 Recipe recipe, int appWidgetId) {
+
+        Log.d(RecipeWidgetProvider.class.getSimpleName(), "update");
+
         Intent intent;
 
         // Construct the RemoteViews object
@@ -28,8 +32,9 @@ public class RecipeWidgetProvider extends AppWidgetProvider {
 
         if (recipe != null) {
             // Get the Recipe Title
-            String recipeTitle = recipe.getRecipeName().toString();
+            String recipeTitle = recipe.getRecipeName();
             // Update Recipe Title
+
             view.setTextViewText(R.id.widget_recipe_text_view, recipeTitle);
 
             // Get the ingredients from the current recipe

@@ -23,8 +23,6 @@ public class RecipeWidgetProvider extends AppWidgetProvider {
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 Recipe recipe, int appWidgetId) {
 
-        Log.d(RecipeWidgetProvider.class.getSimpleName(), "update");
-
         Intent intent;
 
         // Construct the RemoteViews object

@@ -1,5 +1,6 @@
 package com.android.bakeitup.fragments;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -96,7 +97,7 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.RecipeAdap
         startActivity(recipeIntent);
     }
 
-
+    @SuppressLint("StaticFieldLeak")
     private class FetchRecipeTask extends AsyncTask<Void, Void, List<Recipe>> {
 
         @Override

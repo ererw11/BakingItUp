@@ -1,5 +1,5 @@
 # BakingItUp
-A simple baking app created for Android Developer Nanodegree.
+A simple baking app with step by step video instructions.
 
 Learn how to bake four desserts using BakingItUp.<br />
 <br />
